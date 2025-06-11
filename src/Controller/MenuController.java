@@ -9,6 +9,12 @@ public class MenuController {
     private ConsoleView view = new ConsoleView();
 
     public void iniciar() {
+        contactManager.addContact("Juan Pérez", "0991234567");
+        contactManager.addContact("Ana Gómez", "0987654321");
+        contactManager.addContact("Carlos Ruiz", "0971122334");
+        contactManager.addContact("Lucía Torres", "0969988776");
+        contactManager.addContact("Miguel Andrade", "0955544332");
+
         int opcion;
         do {
             opcion = view.mostrarMenu();
@@ -43,7 +49,7 @@ public class MenuController {
 
     private void buscarContacto() {
         String nombre = view.pedirTexto("Nombre a buscar: ");
-        Contact<String, String> contacto = contactManager.findContactByName(nombre);
+        Contact contacto = contactManager.findContactByName(nombre);
         if (contacto != null) {
             view.mostrarMensaje(" " + contacto.toString());
         } else {
@@ -62,7 +68,7 @@ public class MenuController {
     }
 
     private void mostrarContactos() {
-        Node<Contact<String, String>> actual = contactManager.getContacts().getHead();
+        Node<Contact> actual = contactManager.getContacts().getHead();
         if (actual == null) {
             view.mostrarMensaje("La agenda está vacía.");
         } else {
