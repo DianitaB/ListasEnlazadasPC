@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class Contact <T,U>{
     private T name;

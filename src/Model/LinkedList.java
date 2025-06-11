@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class LinkedList <T>{
     private Node <T> head;
